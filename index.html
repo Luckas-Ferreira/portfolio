@@ -1,726 +1,536 @@
 <!DOCTYPE html>
 <html lang="pt-br" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lucas Ferreira — Front-End Developer</title>
-  <meta name="description" content="Portfólio de José Lucas Ferreira dos Santos, Desenvolvedor Front-End especialista em Angular, React, Flutter e TailwindCSS.">
+  <meta name="description"
+    content="Portfólio de José Lucas Ferreira dos Santos, Desenvolvedor Front-End especialista em Angular, React, Flutter e TailwindCSS.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap"
+    rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Fira Code', 'monospace'] },
-        }
-      }
-    }
-  </script>
-  <style>
-    * { box-sizing: border-box; margin: 0; }
-    html, body { overflow-x: hidden; max-width: 100%; }
-    body { background: #050a14; color: #e2e8f0; }
-
-    .hero-bg {
-      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(34,211,238,0.13) 0%, transparent 70%),
-                  radial-gradient(ellipse 60% 50% at 90% 50%, rgba(139,92,246,0.10) 0%, transparent 70%),
-                  #050a14;
-    }
-
-    .glass {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
-      backdrop-filter: blur(12px);
-    }
-
-    .glow-cyan { text-shadow: 0 0 30px rgba(34,211,238,0.5); }
-
-    .grad-text {
-      background: linear-gradient(135deg, #22d3ee 0%, #8b5cf6 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .skill-pill {
-      background: rgba(34,211,238,0.08);
-      border: 1px solid rgba(34,211,238,0.2);
-      transition: all 0.3s ease;
-    }
-    .skill-pill:hover {
-      background: rgba(34,211,238,0.18);
-      border-color: rgba(34,211,238,0.5);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 20px rgba(34,211,238,0.2);
-    }
-
-    /* Clickable project card */
-    .proj-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
-      transition: all 0.4s ease;
-      display: block;
-      text-decoration: none;
-      color: inherit;
-    }
-    .proj-card:hover {
-      border-color: rgba(34,211,238,0.4);
-      transform: translateY(-6px);
-      box-shadow: 0 20px 60px rgba(34,211,238,0.08);
-    }
-
-    /* Non-link card */
-    .proj-card-plain {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
-      transition: all 0.4s ease;
-    }
-    .proj-card-plain:hover {
-      border-color: rgba(139,92,246,0.35);
-      transform: translateY(-6px);
-      box-shadow: 0 20px 60px rgba(139,92,246,0.07);
-    }
-
-    /* Navbar always frosted */
-    #navbar {
-      background: rgba(5, 10, 20, 0.65);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .nav-link { position: relative; transition: color 0.3s; }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -3px; left: 0;
-      width: 0; height: 2px;
-      background: linear-gradient(90deg, #22d3ee, #8b5cf6);
-      transition: width 0.3s ease;
-    }
-    .nav-link:hover::after { width: 100%; }
-    .nav-link:hover { color: #22d3ee; }
-
-    .timeline-dot {
-      width: 14px; height: 14px;
-      background: linear-gradient(135deg, #22d3ee, #8b5cf6);
-      border-radius: 50%;
-      flex-shrink: 0;
-      box-shadow: 0 0 12px rgba(34,211,238,0.5);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #22d3ee, #8b5cf6);
-      transition: all 0.3s ease;
-    }
-    .btn-primary:hover { transform: scale(1.05); box-shadow: 0 8px 30px rgba(34,211,238,0.35); }
-
-    .btn-outline {
-      border: 1px solid rgba(34,211,238,0.4);
-      color: #22d3ee;
-      transition: all 0.3s ease;
-    }
-    .btn-outline:hover { background: rgba(34,211,238,0.1); border-color: #22d3ee; transform: scale(1.05); }
-
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #050a14; }
-    ::-webkit-scrollbar-thumb { background: linear-gradient(#22d3ee, #8b5cf6); border-radius: 3px; }
-
-    .cursor { animation: blink 1s step-end infinite; }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
-    .badge {
-      background: rgba(34,211,238,0.1);
-      border: 1px solid rgba(34,211,238,0.25);
-      color: #22d3ee;
-      font-size: 0.7rem;
-      padding: 2px 10px;
-      border-radius: 999px;
-      font-family: 'Fira Code', monospace;
-    }
-
-    .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(34,211,238,0.3), transparent); }
-
-    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
-    .float-anim { animation: float 4s ease-in-out infinite; }
-
-    .dot-grid {
-      background-image: radial-gradient(rgba(34,211,238,0.12) 1px, transparent 1px);
-      background-size: 32px 32px;
-    }
-
-    .profile-ring {
-      /* outer shell — no animation here */ }
-
-    /* Spinning gradient ring — animates separately from the image */
-    .profile-ring-wrap {
-      position: relative;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-    .profile-ring-bg {
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      background: conic-gradient(from 0deg, #22d3ee, #8b5cf6, #22d3ee);
-      animation: spin-ring 5s linear infinite;
-    }
-    .profile-ring-mask {
-      position: absolute;
-      inset: 3px;
-      border-radius: 50%;
-      overflow: hidden;
-      background: #050a14;
-    }
-    .profile-ring-mask img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: top;
-      display: block;
-    }
-    @keyframes spin-ring { to { transform: rotate(360deg); } }
-
-    #mobile-nav { display: none; }
-    #mobile-nav.open { display: flex; }
-
-    /* arrow icon slide in on hover */
-    .proj-card .arr { opacity:0; transform:translateX(-4px); transition:all .3s; }
-    .proj-card:hover .arr { opacity:1; transform:translateX(0); }
-
-    /* IniPort image overlay */
-    .iniport-img-wrap {
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      height: 180px;
-    }
-    .iniport-img-wrap img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: top;
-      transition: transform 0.5s ease;
-    }
-    .proj-card:hover .iniport-img-wrap img { transform: scale(1.04); }
-    .iniport-img-wrap::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(to bottom, transparent 40%, rgba(5,10,20,0.9) 100%);
-    }
-  </style>
+  <script src="tailwind.config.js"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body class="font-sans antialiased">
 
-<!-- ─── NAVBAR ─────────────────────────────────────── -->
-<header id="navbar" class="fixed top-0 w-full z-50">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="#inicio" class="font-mono text-cyan-400 font-bold text-lg tracking-tight">
-      &lt;Lucas<span class="text-violet-500">/</span>&gt;
-    </a>
-    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-      <a href="#sobre" class="nav-link">Sobre</a>
-      <a href="#habilidades" class="nav-link">Habilidades</a>
-      <a href="#projetos" class="nav-link">Projetos</a>
-      <a href="#formacao" class="nav-link">Formação</a>
-      <a href="#contato" class="btn-primary text-white py-2 px-5 rounded-full text-sm font-semibold">Contato</a>
-    </nav>
-    <button id="menu-btn" class="md:hidden text-cyan-400">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
-      </svg>
-    </button>
-  </div>
-  <div id="mobile-nav" class="flex-col items-center gap-6 py-8 bg-[#050a14]/95 backdrop-blur-xl text-slate-200 text-lg font-medium border-t border-white/5">
-    <a href="#sobre" class="mobile-link">Sobre</a>
-    <a href="#habilidades" class="mobile-link">Habilidades</a>
-    <a href="#projetos" class="mobile-link">Projetos</a>
-    <a href="#formacao" class="mobile-link">Formação</a>
-    <a href="#contato" class="btn-primary text-white py-2.5 px-8 rounded-full font-semibold">Contato</a>
-  </div>
-</header>
-
-<!-- ─── HERO ───────────────────────────────────────── -->
-<section id="inicio" class="hero-bg dot-grid min-h-screen flex items-center pt-20 overflow-x-clip">
-  <div class="max-w-6xl mx-auto w-full px-6 py-20 flex flex-col-reverse md:flex-row items-center gap-12 md:gap-0">
-
-    <div class="w-full md:w-3/5 min-w-0 text-center md:text-left" data-aos="fade-right" data-aos-duration="800">
-      <span class="badge mb-5 inline-block">Disponível para oportunidades ✦</span>
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-4 text-white">
-        Olá, eu sou<br>
-        <span class="grad-text glow-cyan">Lucas Ferreira</span>
-      </h1>
-      <div class="font-mono text-cyan-400 text-base sm:text-xl mb-6 font-medium break-words w-full">
-        &lt;<span class="text-slate-400">role</span>&gt; <span id="typed-text">Front-End Developer</span><span class="cursor text-white">|</span> &lt;/<span class="text-slate-400">role</span>&gt;
-      </div>
-      <p class="text-slate-400 leading-relaxed max-w-xl mx-auto md:mx-0 text-base mb-8">
-        Desenvolvedor Front-End apaixonado por criar experiências digitais que fazem a diferença.
-        Especialista em <strong class="text-white">Angular</strong>, <strong class="text-white">React</strong> e <strong class="text-white">Flutter</strong>,
-        com foco em performance, acessibilidade e UI/UX de qualidade.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-        <a href="#projetos" class="btn-primary text-white py-3.5 px-8 rounded-full font-bold">Ver Projetos 🚀</a>
-        <a href="https://github.com/Luckas-Ferreira" target="_blank" rel="noopener noreferrer" class="btn-outline py-3.5 px-8 rounded-full font-bold">GitHub →</a>
-      </div>
-      <div class="flex gap-8 mt-10 justify-center md:justify-start text-center">
-        <div>
-          <div class="text-2xl font-black text-white">15+</div>
-          <div class="text-xs text-slate-500 font-medium mt-0.5">Projetos</div>
-        </div>
-        <div class="w-px bg-white/10"></div>
-        <div>
-          <div class="text-2xl font-black text-white">5+</div>
-          <div class="text-xs text-slate-500 font-medium mt-0.5">Anos Dev</div>
-        </div>
-        <div class="w-px bg-white/10"></div>
-        <div>
-          <div class="text-2xl font-black text-white">UFAL</div>
-          <div class="text-xs text-slate-500 font-medium mt-0.5">Ciência da Comp.</div>
-        </div>
-      </div>
+  <!-- ─── NAVBAR ─────────────────────────────────────── -->
+  <header id="navbar" class="fixed top-0 w-full z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#inicio" class="font-mono text-cyan-400 font-bold text-lg tracking-tight">
+        &lt;Lucas<span class="text-violet-500">/</span>&gt;
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#sobre" class="nav-link">Sobre</a>
+        <a href="#habilidades" class="nav-link">Habilidades</a>
+        <a href="#projetos" class="nav-link">Projetos</a>
+        <a href="#formacao" class="nav-link">Formação</a>
+        <a href="#contato" class="btn-primary text-white py-2 px-5 rounded-full text-sm font-semibold">Contato</a>
+      </nav>
+      <button id="menu-btn" aria-label="Abrir Menu" class="md:hidden text-cyan-400">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
     </div>
+    <div id="mobile-nav"
+      class="flex-col items-center gap-6 py-8 bg-[#050a14]/95 backdrop-blur-xl text-slate-200 text-lg font-medium border-t border-white/5">
+      <a href="#sobre" class="mobile-link">Sobre</a>
+      <a href="#habilidades" class="mobile-link">Habilidades</a>
+      <a href="#projetos" class="mobile-link">Projetos</a>
+      <a href="#formacao" class="mobile-link">Formação</a>
+      <a href="#contato" class="btn-primary text-white py-2.5 px-8 rounded-full font-semibold">Contato</a>
+    </div>
+  </header>
 
-    <div class="w-full md:w-2/5 flex justify-center" data-aos="fade-left" data-aos-duration="800">
-      <div class="relative float-anim">
-        <div class="absolute inset-0 rounded-full blur-3xl bg-cyan-500/20 scale-110"></div>
-        <div class="profile-ring-wrap w-52 h-52 md:w-64 md:h-64">
-          <div class="profile-ring-bg"></div>
-          <div class="profile-ring-mask">
-            <img src="assets/lucas.avif" alt="Lucas Ferreira"
-                 onerror="this.src='https://ui-avatars.com/api/?name=Lucas+Ferreira&background=0d1628&color=22d3ee&size=256&bold=true'">
+  <main>
+  <!-- ─── HERO ───────────────────────────────────────── -->
+  <section id="inicio" class="hero-bg dot-grid min-h-screen flex items-center pt-20 overflow-x-clip">
+    <div class="max-w-6xl mx-auto w-full px-6 py-20 flex flex-col-reverse md:flex-row items-center gap-12 md:gap-0">
+
+      <div class="w-full md:w-3/5 min-w-0 text-center md:text-left" data-aos="fade-right" data-aos-duration="800">
+        <span class="badge mb-5 inline-block">Disponível para oportunidades ✦</span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-4 text-white">
+          Olá, eu sou<br>
+          <span class="grad-text glow-cyan">Lucas Ferreira</span>
+        </h1>
+        <div class="font-mono text-cyan-400 text-base sm:text-xl mb-6 font-medium break-words w-full">
+          &lt;<span class="text-slate-400">role</span>&gt; <span id="typed-text">Front-End Developer</span><span
+            class="cursor text-white">|</span> &lt;/<span class="text-slate-400">role</span>&gt;
+        </div>
+        <p class="text-slate-400 leading-relaxed max-w-xl mx-auto md:mx-0 text-base mb-8">
+          Desenvolvedor Front-End apaixonado por criar experiências digitais que fazem a diferença.
+          Especialista em <strong class="text-white">Angular</strong>, <strong class="text-white">React</strong> e
+          <strong class="text-white">Flutter</strong>,
+          com foco em performance, acessibilidade e UI/UX de qualidade.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <a href="#projetos" class="btn-primary text-white py-3.5 px-8 rounded-full font-bold">Ver Projetos 🚀</a>
+          <a href="https://github.com/Luckas-Ferreira" target="_blank" rel="noopener noreferrer"
+            class="btn-outline py-3.5 px-8 rounded-full font-bold">GitHub →</a>
+        </div>
+        <div class="flex gap-8 mt-10 justify-center md:justify-start text-center">
+          <div>
+            <div class="text-2xl font-black text-white">15+</div>
+            <div class="text-xs text-slate-400 font-medium mt-0.5">Projetos</div>
+          </div>
+          <div class="w-px bg-white/10"></div>
+          <div>
+            <div class="text-2xl font-black text-white">5+</div>
+            <div class="text-xs text-slate-400 font-medium mt-0.5">Anos Dev</div>
+          </div>
+          <div class="w-px bg-white/10"></div>
+          <div>
+            <div class="text-2xl font-black text-white">UFAL</div>
+            <div class="text-xs text-slate-400 font-medium mt-0.5">Ciência da Comp.</div>
           </div>
         </div>
-        <div class="hidden sm:block absolute -bottom-2 -left-6 glass rounded-xl px-3 py-2 text-xs font-mono">
-          <span class="text-cyan-400">Angular</span> <span class="text-slate-500">expert</span>
-        </div>
-        <div class="hidden sm:block absolute -top-2 -right-4 glass rounded-xl px-3 py-2 text-xs font-mono">
-          <span class="text-violet-400">Flutter</span> <span class="text-slate-500">dev</span>
+      </div>
+
+      <div class="w-full md:w-2/5 flex justify-center" data-aos="fade-left" data-aos-duration="800">
+        <div class="relative float-anim">
+          <div class="absolute inset-0 rounded-full blur-3xl bg-cyan-500/20 scale-110"></div>
+          <div class="profile-ring-wrap w-52 h-52 md:w-64 md:h-64">
+            <div class="profile-ring-bg"></div>
+            <div class="profile-ring-mask">
+              <img src="assets/lucas.avif" alt="Lucas Ferreira"
+                onerror="this.src='https://ui-avatars.com/api/?name=Lucas+Ferreira&background=0d1628&color=22d3ee&size=256&bold=true'">
+            </div>
+          </div>
+          <div class="hidden sm:block absolute -bottom-2 -left-6 glass rounded-xl px-3 py-2 text-xs font-mono">
+            <span class="text-cyan-400">Angular</span> <span class="text-slate-400">expert</span>
+          </div>
+          <div class="hidden sm:block absolute -top-2 -right-4 glass rounded-xl px-3 py-2 text-xs font-mono">
+            <span class="text-violet-400">Flutter</span> <span class="text-slate-400">dev</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 opacity-40">
-    <span class="text-xs font-mono text-slate-400">scroll</span>
-    <div class="w-px h-8 bg-gradient-to-b from-cyan-400 to-transparent"></div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ─── SOBRE ───────────────────────────────────────── -->
-<section id="sobre" class="py-16 md:py-24 px-4 md:px-6">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-16" data-aos="fade-up">
-      <span class="font-mono text-cyan-400 text-sm">// sobre mim</span>
-      <h2 class="text-3xl md:text-4xl font-black text-white mt-2">Quem sou eu</h2>
+    <div class="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 opacity-40">
+      <span class="text-xs font-mono text-slate-400">scroll</span>
+      <div class="w-px h-8 bg-gradient-to-b from-cyan-400 to-transparent"></div>
     </div>
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div data-aos="fade-right">
-        <p class="text-slate-300 leading-relaxed mb-5">
-          Sou <strong class="text-white">José Lucas Ferreira dos Santos</strong>, 25 anos, desenvolvedor Front-End de
-          <strong class="text-cyan-400">Girau do Ponciano, Alagoas</strong>. Estou no 8º semestre de Ciência da Computação
-          na Universidade Federal de Alagoas (UFAL), com previsão de conclusão em 2026.
-        </p>
-        <p class="text-slate-300 leading-relaxed mb-5">
-          Tenho paixão por transformar ideias complexas em interfaces digitais simples, bonitas e funcionais.
-          Trabalho com o ecossistema <strong class="text-white">Angular</strong> com profundidade, mas também me aventuro
-          no universo <strong class="text-white">React</strong> e no desenvolvimento mobile com <strong class="text-white">Flutter</strong>.
-        </p>
-        <p class="text-slate-300 leading-relaxed">
-          Sou co-fundador do <strong class="text-cyan-400">IniPort</strong>, uma plataforma SaaS de gestão
-          de transporte universitário que já está em uso por prefeituras de Alagoas e foi reconhecida no
-          <strong class="text-white">Startup Nordeste</strong>. Acredito que tecnologia bem feita tem o poder de transformar o setor público.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <span class="badge">📍 Girau do Ponciano, AL</span>
-          <span class="badge">🎓 UFAL — Ciência da Computação</span>
-          <span class="badge">🇧🇷🇺🇸 PT / EN</span>
-        </div>
-      </div>
-      <div class="grid grid-cols-2 gap-4" data-aos="fade-left">
-        <div class="glass rounded-2xl p-5 hover:border-cyan-500/30 transition-all">
-          <div class="text-3xl mb-3">⚡</div>
-          <h4 class="font-bold text-white mb-1">Performance</h4>
-          <p class="text-slate-400 text-sm">Foco em apps rápidos, otimizados e com boa experiência</p>
-        </div>
-        <div class="glass rounded-2xl p-5 hover:border-violet-500/30 transition-all">
-          <div class="text-3xl mb-3">🎨</div>
-          <h4 class="font-bold text-white mb-1">UI / UX</h4>
-          <p class="text-slate-400 text-sm">Design cuidadoso do Figma até a implementação final</p>
-        </div>
-        <div class="glass rounded-2xl p-5 hover:border-cyan-500/30 transition-all">
-          <div class="text-3xl mb-3">📱</div>
-          <h4 class="font-bold text-white mb-1">Mobile</h4>
-          <p class="text-slate-400 text-sm">Apps multiplataforma com Flutter para Android e iOS</p>
-        </div>
-        <div class="glass rounded-2xl p-5 hover:border-violet-500/30 transition-all">
-          <div class="text-3xl mb-3">🚀</div>
-          <h4 class="font-bold text-white mb-1">SaaS / B2G</h4>
-          <p class="text-slate-400 text-sm">Experiência real entregando software para o setor público</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<div class="divider"></div>
+  <div class="divider"></div>
 
-<!-- ─── HABILIDADES ────────────────────────────────── -->
-<section id="habilidades" class="py-16 md:py-24 px-4 md:px-6">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-16" data-aos="fade-up">
-      <span class="font-mono text-cyan-400 text-sm">// stack tecnológica</span>
-      <h2 class="text-3xl md:text-4xl font-black text-white mt-2">Habilidades</h2>
-    </div>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="glass rounded-2xl p-6" data-aos="fade-up" data-aos-delay="0">
-        <div class="flex items-center gap-3 mb-5">
-          <div class="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center text-xl">🖥️</div>
-          <h3 class="font-bold text-white text-lg">Front-End</h3>
-        </div>
-        <div class="flex flex-wrap gap-2">
-          <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-cyan-300 font-medium">Angular</span>
-          <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-cyan-300 font-medium">TypeScript</span>
-          <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-cyan-300 font-medium">React</span>
-          <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-cyan-300 font-medium">TailwindCSS</span>
-          <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-cyan-300 font-medium">Bootstrap</span>
-          <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-cyan-300 font-medium">Angular Material</span>
-          <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-cyan-300 font-medium">HTML5 / CSS3</span>
-          <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-cyan-300 font-medium">PWA</span>
-        </div>
+  <!-- ─── SOBRE ───────────────────────────────────────── -->
+  <section id="sobre" class="py-16 md:py-24 px-4 md:px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="font-mono text-cyan-400 text-sm">// sobre mim</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white mt-2">Quem sou eu</h2>
       </div>
-      <div class="glass rounded-2xl p-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="flex items-center gap-3 mb-5">
-          <div class="w-10 h-10 rounded-xl bg-violet-500/20 flex items-center justify-center text-xl">📱</div>
-          <h3 class="font-bold text-white text-lg">Mobile & Infra</h3>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+          <p class="text-slate-300 leading-relaxed mb-5">
+            Sou <strong class="text-white">José Lucas Ferreira dos Santos</strong>, 25 anos, desenvolvedor Front-End de
+            <strong class="text-cyan-400">Girau do Ponciano, Alagoas</strong>. Estou no 8º semestre de Ciência da
+            Computação
+            na Universidade Federal de Alagoas (UFAL), com previsão de conclusão em 2026.
+          </p>
+          <p class="text-slate-300 leading-relaxed mb-5">
+            Tenho paixão por transformar ideias complexas em interfaces digitais simples, bonitas e funcionais.
+            Trabalho com o ecossistema <strong class="text-white">Angular</strong> com profundidade, mas também me
+            aventuro
+            no universo <strong class="text-white">React</strong> e no desenvolvimento mobile com <strong
+              class="text-white">Flutter</strong>.
+          </p>
+          <p class="text-slate-300 leading-relaxed">
+            Sou co-fundador do <strong class="text-cyan-400">IniPort</strong>, uma plataforma SaaS de gestão
+            de transporte universitário que já está em uso por prefeituras de Alagoas e foi reconhecida no
+            <strong class="text-white">Startup Nordeste</strong>. Acredito que tecnologia bem feita tem o poder de
+            transformar o setor público.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <span class="badge">📍 Girau do Ponciano, AL</span>
+            <span class="badge">🎓 UFAL — Ciência da Computação</span>
+            <span class="badge">🇧🇷🇺🇸 PT / EN</span>
+          </div>
         </div>
-        <div class="flex flex-wrap gap-2">
-          <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-violet-300 font-medium">Flutter</span>
-          <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-violet-300 font-medium">Ionic</span>
-          <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-violet-300 font-medium">Capacitor</span>
-          <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-violet-300 font-medium">REST API</span>
-          <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-violet-300 font-medium">WebSocket</span>
-          <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-violet-300 font-medium">Git</span>
-          <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-violet-300 font-medium">Swagger</span>
-          <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-violet-300 font-medium">SCRUM</span>
-        </div>
-      </div>
-      <div class="glass rounded-2xl p-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="flex items-center gap-3 mb-5">
-          <div class="w-10 h-10 rounded-xl bg-pink-500/20 flex items-center justify-center text-xl">🎨</div>
-          <h3 class="font-bold text-white text-lg">Design & Outros</h3>
-        </div>
-        <div class="flex flex-wrap gap-2">
-          <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-pink-300 font-medium">Figma</span>
-          <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-pink-300 font-medium">FlutterFlow</span>
-          <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-pink-300 font-medium">Photoshop</span>
-          <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-pink-300 font-medium">Web Optimization</span>
-          <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-pink-300 font-medium">SEO</span>
-          <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-pink-300 font-medium">Power BI</span>
-          <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-pink-300 font-medium">Linux</span>
+        <div class="grid grid-cols-2 gap-4" data-aos="fade-left">
+          <div class="glass rounded-2xl p-5 hover:border-cyan-500/30 transition-all">
+            <div class="text-3xl mb-3">⚡</div>
+            <h3 class="font-bold text-white mb-1">Performance</h3>
+            <p class="text-slate-400 text-sm">Foco em apps rápidos, otimizados e com boa experiência</p>
+          </div>
+          <div class="glass rounded-2xl p-5 hover:border-violet-500/30 transition-all">
+            <div class="text-3xl mb-3">🎨</div>
+            <h3 class="font-bold text-white mb-1">UI / UX</h3>
+            <p class="text-slate-400 text-sm">Design cuidadoso do Figma até a implementação final</p>
+          </div>
+          <div class="glass rounded-2xl p-5 hover:border-cyan-500/30 transition-all">
+            <div class="text-3xl mb-3">📱</div>
+            <h3 class="font-bold text-white mb-1">Mobile</h3>
+            <p class="text-slate-400 text-sm">Apps multiplataforma com Flutter para Android e iOS</p>
+          </div>
+          <div class="glass rounded-2xl p-5 hover:border-violet-500/30 transition-all">
+            <div class="text-3xl mb-3">🚀</div>
+            <h3 class="font-bold text-white mb-1">SaaS / B2G</h3>
+            <p class="text-slate-400 text-sm">Experiência real entregando software para o setor público</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="divider"></div>
+  <div class="divider"></div>
 
-<!-- ─── PROJETOS ────────────────────────────────────── -->
-<section id="projetos" class="py-16 md:py-24 px-4 md:px-6">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-16" data-aos="fade-up">
-      <span class="font-mono text-cyan-400 text-sm">// o que eu construí</span>
-      <h2 class="text-3xl md:text-4xl font-black text-white mt-2">Projetos</h2>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-      <!-- ── IniPort — destaque, com imagem ── -->
-      <a href="https://iniport.com.br" target="_blank" rel="noopener noreferrer"
-         class="proj-card rounded-2xl overflow-hidden lg:col-span-2 relative cursor-pointer"
-         data-aos="fade-up">
-
-        <!-- Banner image -->
-        <div class="iniport-img-wrap">
-          <img src="assets/iniport.webp" alt="IniPort — plataforma de transporte universitário"
-               onerror="this.parentElement.style.background='linear-gradient(135deg,#0d1f3c,#0a3d62)'; this.style.display='none'">
+  <!-- ─── HABILIDADES ────────────────────────────────── -->
+  <section id="habilidades" class="py-16 md:py-24 px-4 md:px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="font-mono text-cyan-400 text-sm">// stack tecnológica</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white mt-2">Habilidades</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="glass rounded-2xl p-6" data-aos="fade-up" data-aos-delay="0">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center text-xl">🖥️</div>
+            <h3 class="font-bold text-white text-lg">Front-End</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-cyan-300 font-medium">Angular</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-cyan-300 font-medium">TypeScript</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-cyan-300 font-medium">React</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-cyan-300 font-medium">TailwindCSS</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-cyan-300 font-medium">Bootstrap</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-cyan-300 font-medium">Angular Material</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-cyan-300 font-medium">HTML5 / CSS3</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-cyan-300 font-medium">PWA</span>
+          </div>
         </div>
+        <div class="glass rounded-2xl p-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-xl bg-violet-500/20 flex items-center justify-center text-xl">📱</div>
+            <h3 class="font-bold text-white text-lg">Mobile & Infra</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-violet-300 font-medium">Flutter</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-violet-300 font-medium">Ionic</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-violet-300 font-medium">REST API</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-violet-300 font-medium">WebSocket</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-violet-300 font-medium">Git</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-violet-300 font-medium">Swagger</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-violet-300 font-medium">SCRUM</span>
+          </div>
+        </div>
+        <div class="glass rounded-2xl p-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-xl bg-pink-500/20 flex items-center justify-center text-xl">🎨</div>
+            <h3 class="font-bold text-white text-lg">Design & Outros</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-pink-300 font-medium">Figma</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-pink-300 font-medium">FlutterFlow</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-pink-300 font-medium">Photoshop</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-pink-300 font-medium">Web Optimization</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-pink-300 font-medium">SEO</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-pink-300 font-medium">Power BI</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-sm text-pink-300 font-medium">Linux</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="p-6 relative">
-          <div class="absolute top-0 right-0 w-48 h-48 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none"></div>
-          <div class="flex items-start justify-between mb-3">
-            <div class="flex items-center gap-3">
-              <div class="w-11 h-11 rounded-xl bg-cyan-500/15 flex items-center justify-center text-2xl">
-                <img src="assets/logo2.webp" alt="IniPort" class="rounded-full object-contain">
-              </div>
-              <div>
-                <div class="flex items-center gap-1.5 flex-wrap max-w-full">
-                  <h3 class="font-black text-white text-xl">IniPort</h3>
-                  <span class="text-xs bg-green-500/20 text-green-400 border border-green-500/30 px-2 py-0.5 rounded-full">Live ✦</span>
-                  <span class="text-xs bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 px-2 py-0.5 rounded-full">🏆 Startup Nordeste</span>
+  <div class="divider"></div>
+
+  <!-- ─── PROJETOS ────────────────────────────────────── -->
+  <section id="projetos" class="py-16 md:py-24 px-4 md:px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="font-mono text-cyan-400 text-sm">// o que eu construí</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white mt-2">Projetos</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- ── IniPort — destaque, com imagem ── -->
+        <a href="https://iniport.com.br" target="_blank" rel="noopener noreferrer"
+          class="proj-card rounded-2xl overflow-hidden lg:col-span-2 relative cursor-pointer" data-aos="fade-up">
+
+          <!-- Banner image -->
+          <div class="iniport-img-wrap">
+            <img src="assets/iniport.webp" alt="IniPort — plataforma de transporte universitário"
+              onerror="this.parentElement.style.background='linear-gradient(135deg,#0d1f3c,#0a3d62)'; this.style.display='none'">
+          </div>
+
+          <div class="p-6 relative">
+            <div class="absolute top-0 right-0 w-48 h-48 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-cyan-500/15 flex items-center justify-center text-2xl">
+                  <img src="assets/logo2.webp" alt="IniPort" class="rounded-full object-contain">
                 </div>
-                <p class="text-slate-500 text-sm font-mono">Co-fundador · 2024 — atual · iniport.com.br</p>
+                <div>
+                  <div class="flex items-center gap-1.5 flex-wrap max-w-full">
+                    <h3 class="font-black text-white text-xl">IniPort</h3>
+                    <span
+                      class="text-xs bg-green-500/20 text-green-400 border border-green-500/30 px-2 py-0.5 rounded-full">Live
+                      ✦</span>
+                    <span
+                      class="text-xs bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 px-2 py-0.5 rounded-full">🏆
+                      Startup Nordeste</span>
+                  </div>
+                  <p class="text-slate-400 text-sm font-mono">Co-fundador · 2024 — atual · iniport.com.br</p>
+                </div>
+              </div>
+              <span class="text-cyan-400 text-lg arr flex-shrink-0 ml-2">↗</span>
+            </div>
+            <p class="text-slate-300 leading-relaxed text-sm">
+              Plataforma SaaS B2G premiada no <strong class="text-white">Startup Nordeste</strong>, voltada à gestão
+              inteligente do transporte universitário intermunicipal.
+              Conecta prefeituras, motoristas e estudantes em um único ecossistema digital — com rastreamento em tempo
+              real, carteirinha digital e painéis de controle.
+              Atualmente em crescimento e já em operação em municípios de Alagoas.
+            </p>
+          </div>
+        </a>
+
+        <!-- ── Gestão DIU — com link matéria UFAL ── -->
+        <a href="https://noticias.ufal.br/ufal/noticias/2025/7/aplicativo-da-ufal-gerencia-consultas-de-mulheres-que-usam-dispositivo-intrauterino"
+          target="_blank" rel="noopener noreferrer" class="proj-card rounded-2xl p-6 cursor-pointer" data-aos="fade-up"
+          data-aos-delay="100">
+          <div class="flex items-start justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-violet-500/15 flex items-center justify-center text-xl">🏥</div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3 class="font-bold text-white">Gestão DIU</h3>
+                  <span
+                    class="text-xs bg-blue-500/20 text-blue-300 border border-blue-500/30 px-2 py-0.5 rounded-full">UFAL</span>
+                </div>
+                <p class="text-slate-400 text-xs font-mono">PIBIT — UFAL 2024</p>
               </div>
             </div>
             <span class="text-cyan-400 text-lg arr flex-shrink-0 ml-2">↗</span>
           </div>
-          <p class="text-slate-300 leading-relaxed text-sm">
-            Plataforma SaaS B2G premiada no <strong class="text-white">Startup Nordeste</strong>, voltada à gestão inteligente do transporte universitário intermunicipal. 
-            Conecta prefeituras, motoristas e estudantes em um único ecossistema digital — com rastreamento em tempo real, carteirinha digital e painéis de controle. 
-            Atualmente em crescimento e já em operação em municípios de Alagoas.
+          <p class="text-slate-300 text-sm leading-relaxed mb-3">
+            Aplicativo multiplataforma desenvolvido na UFAL para gerenciar consultas de mulheres que utilizam
+            dispositivo intrauterino (DIU).
+            Projeto reconhecido e noticiado pela universidade, cobrindo web, Android e iOS.
           </p>
-        </div>
-      </a>
+          <div class="flex items-center gap-1.5 text-xs text-violet-400 font-medium mt-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l6 6v8a2 2 0 01-2 2z" />
+            </svg>
+            Ver matéria — noticias.ufal.br
+          </div>
+        </a>
 
-      <!-- ── Gestão DIU — com link matéria UFAL ── -->
-      <a href="https://noticias.ufal.br/ufal/noticias/2025/7/aplicativo-da-ufal-gerencia-consultas-de-mulheres-que-usam-dispositivo-intrauterino"
-         target="_blank" rel="noopener noreferrer"
-         class="proj-card rounded-2xl p-6 cursor-pointer"
-         data-aos="fade-up" data-aos-delay="100">
-        <div class="flex items-start justify-between mb-4">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-violet-500/15 flex items-center justify-center text-xl">🏥</div>
+        <!-- ── EIDI ── -->
+        <div class="proj-card-plain rounded-2xl p-6" data-aos="fade-up" data-aos-delay="150">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-cyan-500/15 flex items-center justify-center text-xl">📊</div>
             <div>
-              <div class="flex items-center gap-2">
-                <h3 class="font-bold text-white">Gestão DIU</h3>
-                <span class="text-xs bg-blue-500/20 text-blue-300 border border-blue-500/30 px-2 py-0.5 rounded-full">UFAL</span>
+              <h3 class="font-bold text-white">EIDI</h3>
+              <p class="text-slate-400 text-xs font-mono">Extensão — UFAL 2022</p>
+            </div>
+          </div>
+          <p class="text-slate-300 text-sm leading-relaxed mb-4">
+            Sistema de geração de gráficos com práticas avançadas de estruturação de dados
+            para garantir performance e escalabilidade.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs bg-white/5 border border-white/10 px-2 py-1 rounded-lg text-slate-300">Angular</span>
+            <span class="text-xs bg-white/5 border border-white/10 px-2 py-1 rounded-lg text-slate-300">Bootstrap</span>
+            <span class="text-xs bg-white/5 border border-white/10 px-2 py-1 rounded-lg text-slate-300">Charts</span>
+          </div>
+        </div>
+
+        <!-- ── Contador de Cliques ── -->
+        <a href="https://contadordecliques.jluckas.com.br/" target="_blank" rel="noopener noreferrer"
+          class="proj-card rounded-2xl p-6 cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-green-500/15 flex items-center justify-center text-xl">🖱️</div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3 class="font-bold text-white">Contador de Cliques</h3>
+                  <span
+                    class="text-xs bg-green-500/20 text-green-400 border border-green-500/30 px-2 py-0.5 rounded-full">Live
+                    ✦</span>
+                </div>
+                <p class="text-slate-400 text-xs font-mono">jluckas.com.br</p>
               </div>
-              <p class="text-slate-500 text-xs font-mono">PIBIT — UFAL 2024</p>
             </div>
+            <span class="text-cyan-400 text-lg arr flex-shrink-0 ml-2">↗</span>
           </div>
-          <span class="text-cyan-400 text-lg arr flex-shrink-0 ml-2">↗</span>
-        </div>
-        <p class="text-slate-300 text-sm leading-relaxed mb-3">
-          Aplicativo multiplataforma desenvolvido na UFAL para gerenciar consultas de mulheres que utilizam dispositivo intrauterino (DIU). 
-          Projeto reconhecido e noticiado pela universidade, cobrindo web, Android e iOS.
-        </p>
-        <div class="flex items-center gap-1.5 text-xs text-violet-400 font-medium mt-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l6 6v8a2 2 0 01-2 2z"/>
-          </svg>
-          Ver matéria — noticias.ufal.br
-        </div>
-      </a>
+          <p class="text-slate-300 text-sm leading-relaxed mb-4">
+            App web interativo de contador de cliques, publicado no domínio pessoal jluckas.com.br.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs bg-white/5 border border-white/10 px-2 py-1 rounded-lg text-slate-300">Web App</span>
+            <span
+              class="text-xs bg-white/5 border border-white/10 px-2 py-1 rounded-lg text-slate-300">JavaScript</span>
+          </div>
+        </a>
 
-      <!-- ── EIDI ── -->
-      <div class="proj-card-plain rounded-2xl p-6" data-aos="fade-up" data-aos-delay="150">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-10 h-10 rounded-xl bg-cyan-500/15 flex items-center justify-center text-xl">📊</div>
-          <div>
-            <h3 class="font-bold text-white">EIDI</h3>
-            <p class="text-slate-500 text-xs font-mono">Extensão — UFAL 2022</p>
-          </div>
-        </div>
-        <p class="text-slate-300 text-sm leading-relaxed mb-4">
-          Sistema de geração de gráficos com práticas avançadas de estruturação de dados
-          para garantir performance e escalabilidade.
-        </p>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-xs bg-white/5 border border-white/10 px-2 py-1 rounded-lg text-slate-300">Angular</span>
-          <span class="text-xs bg-white/5 border border-white/10 px-2 py-1 rounded-lg text-slate-300">Bootstrap</span>
-          <span class="text-xs bg-white/5 border border-white/10 px-2 py-1 rounded-lg text-slate-300">Charts</span>
-        </div>
       </div>
+    </div>
+  </section>
 
-      <!-- ── Contador de Cliques ── -->
-      <a href="https://contadordecliques.jluckas.com.br/" target="_blank" rel="noopener noreferrer"
-         class="proj-card rounded-2xl p-6 cursor-pointer"
-         data-aos="fade-up" data-aos-delay="200">
-        <div class="flex items-center justify-between mb-4">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-green-500/15 flex items-center justify-center text-xl">🖱️</div>
-            <div>
-              <div class="flex items-center gap-2">
-                <h3 class="font-bold text-white">Contador de Cliques</h3>
-                <span class="text-xs bg-green-500/20 text-green-400 border border-green-500/30 px-2 py-0.5 rounded-full">Live ✦</span>
+  <div class="divider"></div>
+
+  <!-- ─── FORMAÇÃO ───────────────────────────────────── -->
+  <section id="formacao" class="py-16 md:py-24 px-4 md:px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="font-mono text-cyan-400 text-sm">// educação & certificados</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white mt-2">Formação</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div data-aos="fade-right">
+          <h3 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
+            <span class="grad-text">🎓</span> Educação
+          </h3>
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="flex flex-col items-center">
+                <div class="timeline-dot mt-1.5"></div>
+                <div class="w-px flex-1 bg-white/10 mt-2"></div>
               </div>
-              <p class="text-slate-500 text-xs font-mono">jluckas.com.br</p>
+              <div class="pb-6">
+                <div class="text-white font-bold">Ciência da Computação</div>
+                <div class="text-cyan-400 text-sm font-medium">Universidade Federal de Alagoas — UFAL</div>
+                <div class="text-slate-400 text-xs mt-1 font-mono">2022 — 2026 (8º semestre)</div>
+                <p class="text-slate-400 text-sm mt-2">
+                  Bacharelado com foco em desenvolvimento de software, algoritmos, estruturas de dados e sistemas
+                  distribuídos.
+                </p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="flex flex-col items-center">
+                <div class="timeline-dot mt-1.5"></div>
+              </div>
+              <div>
+                <div class="text-white font-bold">Operador de Computador</div>
+                <div class="text-cyan-400 text-sm font-medium">PlayEducation</div>
+                <div class="text-slate-400 text-xs mt-1 font-mono">Informática, segurança digital, Office 2016</div>
+              </div>
             </div>
           </div>
-          <span class="text-cyan-400 text-lg arr flex-shrink-0 ml-2">↗</span>
         </div>
-        <p class="text-slate-300 text-sm leading-relaxed mb-4">
-          App web interativo de contador de cliques, publicado no domínio pessoal jluckas.com.br.
+        <div data-aos="fade-left">
+          <h3 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
+            <span class="grad-text">📜</span> Certificações
+          </h3>
+          <div class="space-y-4">
+            <div class="glass rounded-xl p-4 flex items-center gap-4">
+              <div class="text-2xl flex-shrink-0">🐧</div>
+              <div class="min-w-0 flex-1">
+                <div class="text-white font-semibold text-sm">Linux Environment</div>
+                <div class="text-slate-400 text-xs">NCI — UFAL · 30h · Fev 2022</div>
+              </div>
+              <span
+                class="ml-auto text-xs text-green-400 bg-green-500/10 border border-green-500/20 px-2 py-0.5 rounded-full flex-shrink-0">Aprovado</span>
+            </div>
+            <div class="glass rounded-xl p-4 flex items-center gap-4">
+              <div class="text-2xl flex-shrink-0">📊</div>
+              <div class="min-w-0 flex-1">
+                <div class="text-white font-semibold text-sm">Data Analysis with Power BI</div>
+                <div class="text-slate-400 text-xs">NCI — UFAL · 20h · Abr 2023</div>
+              </div>
+              <span
+                class="ml-auto text-xs text-green-400 bg-green-500/10 border border-green-500/20 px-2 py-0.5 rounded-full flex-shrink-0">Aprovado</span>
+            </div>
+            <div class="glass rounded-xl p-4 flex items-center gap-4">
+              <div class="text-2xl flex-shrink-0">🔐</div>
+              <div class="min-w-0 flex-1">
+                <div class="text-white font-semibold text-sm">Digital Security: A Complete Guide</div>
+                <div class="text-slate-400 text-xs">NCI — UFAL · 16h · Jan 2024</div>
+              </div>
+              <span
+                class="ml-auto text-xs text-green-400 bg-green-500/10 border border-green-500/20 px-2 py-0.5 rounded-full flex-shrink-0">Aprovado</span>
+            </div>
+            <div class="glass rounded-xl p-4 flex items-center gap-4">
+              <div class="text-2xl flex-shrink-0">🇺🇸</div>
+              <div class="min-w-0 flex-1">
+                <div class="text-white font-semibold text-sm">Inglês Intermediário</div>
+                <div class="text-slate-400 text-xs">Centro de Educação Profissional</div>
+              </div>
+              <span
+                class="ml-auto text-xs text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-2 py-0.5 rounded-full flex-shrink-0">Intermediate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ─── CONTATO ────────────────────────────────────── -->
+  <section id="contato" class="py-24 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-900/5 to-violet-900/10 pointer-events-none">
+    </div>
+    <div class="max-w-3xl mx-auto text-center relative z-10">
+      <div data-aos="fade-up">
+        <span class="font-mono text-cyan-400 text-sm">// vamos trabalhar juntos?</span>
+        <h2 class="text-3xl md:text-5xl font-black text-white mt-2 mb-6">
+          Entre em <span class="grad-text">contato</span>
+        </h2>
+        <p class="text-slate-400 leading-relaxed mb-12 max-w-xl mx-auto">
+          Estou disponível para projetos freelance, estágios e oportunidades de trabalho.
+          Bora criar algo incrível juntos?
         </p>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-xs bg-white/5 border border-white/10 px-2 py-1 rounded-lg text-slate-300">Web App</span>
-          <span class="text-xs bg-white/5 border border-white/10 px-2 py-1 rounded-lg text-slate-300">JavaScript</span>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ─── FORMAÇÃO ───────────────────────────────────── -->
-<section id="formacao" class="py-16 md:py-24 px-4 md:px-6">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-16" data-aos="fade-up">
-      <span class="font-mono text-cyan-400 text-sm">// educação & certificados</span>
-      <h2 class="text-3xl md:text-4xl font-black text-white mt-2">Formação</h2>
-    </div>
-    <div class="grid md:grid-cols-2 gap-12">
-      <div data-aos="fade-right">
-        <h3 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
-          <span class="grad-text">🎓</span> Educação
-        </h3>
-        <div class="space-y-6">
-          <div class="flex gap-4">
-            <div class="flex flex-col items-center">
-              <div class="timeline-dot mt-1.5"></div>
-              <div class="w-px flex-1 bg-white/10 mt-2"></div>
-            </div>
-            <div class="pb-6">
-              <div class="text-white font-bold">Ciência da Computação</div>
-              <div class="text-cyan-400 text-sm font-medium">Universidade Federal de Alagoas — UFAL</div>
-              <div class="text-slate-500 text-xs mt-1 font-mono">2022 — 2026 (8º semestre)</div>
-              <p class="text-slate-400 text-sm mt-2">
-                Bacharelado com foco em desenvolvimento de software, algoritmos, estruturas de dados e sistemas distribuídos.
-              </p>
-            </div>
-          </div>
-          <div class="flex gap-4">
-            <div class="flex flex-col items-center">
-              <div class="timeline-dot mt-1.5"></div>
-            </div>
-            <div>
-              <div class="text-white font-bold">Operador de Computador</div>
-              <div class="text-cyan-400 text-sm font-medium">PlayEducation</div>
-              <div class="text-slate-500 text-xs mt-1 font-mono">Informática, segurança digital, Office 2016</div>
-            </div>
-          </div>
-        </div>
       </div>
-      <div data-aos="fade-left">
-        <h3 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
-          <span class="grad-text">📜</span> Certificações
-        </h3>
-        <div class="space-y-4">
-          <div class="glass rounded-xl p-4 flex items-center gap-4">
-            <div class="text-2xl flex-shrink-0">🐧</div>
-            <div class="min-w-0 flex-1">
-              <div class="text-white font-semibold text-sm">Linux Environment</div>
-              <div class="text-slate-400 text-xs">NCI — UFAL · 30h · Fev 2022</div>
-            </div>
-            <span class="ml-auto text-xs text-green-400 bg-green-500/10 border border-green-500/20 px-2 py-0.5 rounded-full flex-shrink-0">Aprovado</span>
-          </div>
-          <div class="glass rounded-xl p-4 flex items-center gap-4">
-            <div class="text-2xl flex-shrink-0">📊</div>
-            <div class="min-w-0 flex-1">
-              <div class="text-white font-semibold text-sm">Data Analysis with Power BI</div>
-              <div class="text-slate-400 text-xs">NCI — UFAL · 20h · Abr 2023</div>
-            </div>
-            <span class="ml-auto text-xs text-green-400 bg-green-500/10 border border-green-500/20 px-2 py-0.5 rounded-full flex-shrink-0">Aprovado</span>
-          </div>
-          <div class="glass rounded-xl p-4 flex items-center gap-4">
-            <div class="text-2xl flex-shrink-0">🔐</div>
-            <div class="min-w-0 flex-1">
-              <div class="text-white font-semibold text-sm">Digital Security: A Complete Guide</div>
-              <div class="text-slate-400 text-xs">NCI — UFAL · 16h · Jan 2024</div>
-            </div>
-            <span class="ml-auto text-xs text-green-400 bg-green-500/10 border border-green-500/20 px-2 py-0.5 rounded-full flex-shrink-0">Aprovado</span>
-          </div>
-          <div class="glass rounded-xl p-4 flex items-center gap-4">
-            <div class="text-2xl flex-shrink-0">🇺🇸</div>
-            <div class="min-w-0 flex-1">
-              <div class="text-white font-semibold text-sm">Inglês Intermediário</div>
-              <div class="text-slate-400 text-xs">Centro de Educação Profissional</div>
-            </div>
-            <span class="ml-auto text-xs text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-2 py-0.5 rounded-full flex-shrink-0">Intermediate</span>
-          </div>
-        </div>
+      <div class="grid sm:grid-cols-3 gap-4 mb-12" data-aos="fade-up" data-aos-delay="100">
+        <a href="mailto:lucas.ferreira2@arapiraca.ufal.br"
+          class="glass rounded-2xl p-5 hover:border-cyan-500/30 transition-all group">
+          <div class="text-2xl mb-2">✉️</div>
+          <div class="text-white font-semibold text-sm mb-1">E-mail</div>
+          <div class="text-slate-400 text-xs break-all group-hover:text-cyan-400 transition-colors">
+            lucas.ferreira2@<br>arapiraca.ufal.br</div>
+        </a>
+        <a href="https://github.com/Luckas-Ferreira" target="_blank" rel="noopener noreferrer"
+          class="glass rounded-2xl p-5 hover:border-violet-500/30 transition-all group">
+          <div class="text-2xl mb-2">🐙</div>
+          <div class="text-white font-semibold text-sm mb-1">GitHub</div>
+          <div class="text-slate-400 text-xs group-hover:text-violet-400 transition-colors">
+            github.com/<br>Luckas-Ferreira</div>
+        </a>
+        <a href="https://www.linkedin.com/in/josé-lucas-ferreira-dos-santos-49a7a219b" target="_blank"
+          rel="noopener noreferrer" class="glass rounded-2xl p-5 hover:border-cyan-500/30 transition-all group">
+          <div class="text-2xl mb-2">💼</div>
+          <div class="text-white font-semibold text-sm mb-1">LinkedIn</div>
+          <div class="text-slate-400 text-xs group-hover:text-cyan-400 transition-colors">José Lucas<br>Ferreira dos
+            Santos</div>
+        </a>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="200">
+        <a href="mailto:lucas.ferreira2@arapiraca.ufal.br"
+          class="btn-primary inline-block text-white py-4 px-10 rounded-full font-bold text-lg">
+          Enviar mensagem 🚀
+        </a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+  </main>
 
-<div class="divider"></div>
-
-<!-- ─── CONTATO ────────────────────────────────────── -->
-<section id="contato" class="py-24 px-6 relative overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-900/5 to-violet-900/10 pointer-events-none"></div>
-  <div class="max-w-3xl mx-auto text-center relative z-10">
-    <div data-aos="fade-up">
-      <span class="font-mono text-cyan-400 text-sm">// vamos trabalhar juntos?</span>
-      <h2 class="text-3xl md:text-5xl font-black text-white mt-2 mb-6">
-        Entre em <span class="grad-text">contato</span>
-      </h2>
-      <p class="text-slate-400 leading-relaxed mb-12 max-w-xl mx-auto">
-        Estou disponível para projetos freelance, estágios e oportunidades de trabalho.
-        Bora criar algo incrível juntos?
-      </p>
+  <!-- ─── FOOTER ─────────────────────────────────────── -->
+  <footer class="border-t border-white/5 py-8 px-6">
+    <div
+      class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-slate-400 text-sm text-center md:text-left">
+      <div class="font-mono text-cyan-400 font-bold">&lt;Lucas<span class="text-violet-500">/</span>&gt;</div>
+      <p>Feito com ❤️ por Lucas Ferreira — Girau do Ponciano, AL</p>
+      <p>© 2026 All rights reserved.</p>
     </div>
-    <div class="grid sm:grid-cols-3 gap-4 mb-12" data-aos="fade-up" data-aos-delay="100">
-      <a href="mailto:lucas.ferreira2@arapiraca.ufal.br"
-         class="glass rounded-2xl p-5 hover:border-cyan-500/30 transition-all group">
-        <div class="text-2xl mb-2">✉️</div>
-        <div class="text-white font-semibold text-sm mb-1">E-mail</div>
-        <div class="text-slate-400 text-xs break-all group-hover:text-cyan-400 transition-colors">lucas.ferreira2@<br>arapiraca.ufal.br</div>
-      </a>
-      <a href="https://github.com/Luckas-Ferreira" target="_blank" rel="noopener noreferrer"
-         class="glass rounded-2xl p-5 hover:border-violet-500/30 transition-all group">
-        <div class="text-2xl mb-2">🐙</div>
-        <div class="text-white font-semibold text-sm mb-1">GitHub</div>
-        <div class="text-slate-400 text-xs group-hover:text-violet-400 transition-colors">github.com/<br>Luckas-Ferreira</div>
-      </a>
-      <a href="https://www.linkedin.com/in/josé-lucas-ferreira-dos-santos-49a7a219b" target="_blank" rel="noopener noreferrer"
-         class="glass rounded-2xl p-5 hover:border-cyan-500/30 transition-all group">
-        <div class="text-2xl mb-2">💼</div>
-        <div class="text-white font-semibold text-sm mb-1">LinkedIn</div>
-        <div class="text-slate-400 text-xs group-hover:text-cyan-400 transition-colors">José Lucas<br>Ferreira dos Santos</div>
-      </a>
-    </div>
-    <div data-aos="fade-up" data-aos-delay="200">
-      <a href="mailto:lucas.ferreira2@arapiraca.ufal.br"
-         class="btn-primary inline-block text-white py-4 px-10 rounded-full font-bold text-lg">
-        Enviar mensagem 🚀
-      </a>
-    </div>
-  </div>
-</section>
+  </footer>
 
-<!-- ─── FOOTER ─────────────────────────────────────── -->
-<footer class="border-t border-white/5 py-8 px-6">
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-slate-500 text-sm text-center md:text-left">
-    <div class="font-mono text-cyan-400 font-bold">&lt;Lucas<span class="text-violet-500">/</span>&gt;</div>
-    <p>Feito com ❤️ por Lucas Ferreira — Girau do Ponciano, AL</p>
-    <p>© 2026 All rights reserved.</p>
-  </div>
-</footer>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic', disable: 'mobile' });
-
-  document.getElementById('menu-btn').addEventListener('click', () => {
-    document.getElementById('mobile-nav').classList.toggle('open');
-  });
-  document.querySelectorAll('.mobile-link, #mobile-nav a').forEach(a => {
-    a.addEventListener('click', () => document.getElementById('mobile-nav').classList.remove('open'));
-  });
-
-  const roles = ['Front-End Developer', 'Angular Specialist', 'React Developer', 'Flutter Developer', 'UI/UX Enthusiast', 'Co-fundador IniPort'];
-  let ri = 0, ci = 0, deleting = false;
-  const el = document.getElementById('typed-text');
-  function type() {
-    const cur = roles[ri];
-    if (!deleting) {
-      el.textContent = cur.substring(0, ci + 1);
-      ci++;
-      if (ci === cur.length) { deleting = true; setTimeout(type, 1800); return; }
-    } else {
-      el.textContent = cur.substring(0, ci - 1);
-      ci--;
-      if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
-    }
-    setTimeout(type, deleting ? 50 : 80);
-  }
-  type();
-</script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
