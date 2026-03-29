@@ -1,0 +1,293 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  background: #050a14;
+  color: #e2e8f0;
+}
+
+.hero-bg {
+  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(34, 211, 238, 0.13) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 90% 50%, rgba(139, 92, 246, 0.10) 0%, transparent 70%),
+    #050a14;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+}
+
+.glow-cyan {
+  text-shadow: 0 0 30px rgba(34, 211, 238, 0.5);
+}
+
+.grad-text {
+  background: linear-gradient(135deg, #22d3ee 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.skill-pill {
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  transition: all 0.3s ease;
+}
+
+.skill-pill:hover {
+  background: rgba(34, 211, 238, 0.18);
+  border-color: rgba(34, 211, 238, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(34, 211, 238, 0.2);
+}
+
+/* Clickable project card */
+.proj-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: all 0.4s ease;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.proj-card:hover {
+  border-color: rgba(34, 211, 238, 0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(34, 211, 238, 0.08);
+}
+
+/* Non-link card */
+.proj-card-plain {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: all 0.4s ease;
+}
+
+.proj-card-plain:hover {
+  border-color: rgba(139, 92, 246, 0.35);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(139, 92, 246, 0.07);
+}
+
+/* Navbar always frosted */
+#navbar {
+  background: rgba(5, 10, 20, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nav-link {
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #22d3ee, #8b5cf6);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: #22d3ee;
+}
+
+.timeline-dot {
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(135deg, #22d3ee, #8b5cf6);
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.5);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #22d3ee, #8b5cf6);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(34, 211, 238, 0.35);
+}
+
+.btn-outline {
+  border: 1px solid rgba(34, 211, 238, 0.4);
+  color: #22d3ee;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: rgba(34, 211, 238, 0.1);
+  border-color: #22d3ee;
+  transform: scale(1.05);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050a14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#22d3ee, #8b5cf6);
+  border-radius: 3px;
+}
+
+.cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1
+  }
+
+  50% {
+    opacity: 0
+  }
+}
+
+.badge {
+  background: rgba(34, 211, 238, 0.1);
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  color: #22d3ee;
+  font-size: 0.7rem;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-family: 'Fira Code', monospace;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.3), transparent);
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0)
+  }
+
+  50% {
+    transform: translateY(-12px)
+  }
+}
+
+.float-anim {
+  animation: float 4s ease-in-out infinite;
+}
+
+.dot-grid {
+  background-image: radial-gradient(rgba(34, 211, 238, 0.12) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+
+/* Spinning gradient ring — animates separately from the image */
+.profile-ring-wrap {
+  position: relative;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.profile-ring-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #22d3ee, #8b5cf6, #22d3ee);
+  animation: spin-ring 5s linear infinite;
+}
+
+.profile-ring-mask {
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #050a14;
+}
+
+.profile-ring-mask img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+@keyframes spin-ring {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#mobile-nav {
+  display: none;
+}
+
+#mobile-nav.open {
+  display: flex;
+}
+
+/* arrow icon slide in on hover */
+.proj-card .arr {
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all .3s;
+}
+
+.proj-card:hover .arr {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* IniPort image overlay */
+.iniport-img-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  height: 180px;
+}
+
+.iniport-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.5s ease;
+}
+
+.proj-card:hover .iniport-img-wrap img {
+  transform: scale(1.04);
+}
+
+.iniport-img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(5, 10, 20, 0.9) 100%);
+}
