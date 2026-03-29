@@ -33,7 +33,7 @@
         <a href="#formacao" class="nav-link">Formação</a>
         <a href="#contato" class="btn-primary text-white py-2 px-5 rounded-full text-sm font-semibold">Contato</a>
       </nav>
-      <button id="menu-btn" class="md:hidden text-cyan-400">
+      <button id="menu-btn" aria-label="Abrir Menu" class="md:hidden text-cyan-400">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
         </svg>
@@ -49,6 +49,7 @@
     </div>
   </header>
 
+  <main>
   <!-- ─── HERO ───────────────────────────────────────── -->
   <section id="inicio" class="hero-bg dot-grid min-h-screen flex items-center pt-20 overflow-x-clip">
     <div class="max-w-6xl mx-auto w-full px-6 py-20 flex flex-col-reverse md:flex-row items-center gap-12 md:gap-0">
@@ -77,17 +78,17 @@
         <div class="flex gap-8 mt-10 justify-center md:justify-start text-center">
           <div>
             <div class="text-2xl font-black text-white">15+</div>
-            <div class="text-xs text-slate-500 font-medium mt-0.5">Projetos</div>
+            <div class="text-xs text-slate-400 font-medium mt-0.5">Projetos</div>
           </div>
           <div class="w-px bg-white/10"></div>
           <div>
             <div class="text-2xl font-black text-white">5+</div>
-            <div class="text-xs text-slate-500 font-medium mt-0.5">Anos Dev</div>
+            <div class="text-xs text-slate-400 font-medium mt-0.5">Anos Dev</div>
           </div>
           <div class="w-px bg-white/10"></div>
           <div>
             <div class="text-2xl font-black text-white">UFAL</div>
-            <div class="text-xs text-slate-500 font-medium mt-0.5">Ciência da Comp.</div>
+            <div class="text-xs text-slate-400 font-medium mt-0.5">Ciência da Comp.</div>
           </div>
         </div>
       </div>
@@ -103,10 +104,10 @@
             </div>
           </div>
           <div class="hidden sm:block absolute -bottom-2 -left-6 glass rounded-xl px-3 py-2 text-xs font-mono">
-            <span class="text-cyan-400">Angular</span> <span class="text-slate-500">expert</span>
+            <span class="text-cyan-400">Angular</span> <span class="text-slate-400">expert</span>
           </div>
           <div class="hidden sm:block absolute -top-2 -right-4 glass rounded-xl px-3 py-2 text-xs font-mono">
-            <span class="text-violet-400">Flutter</span> <span class="text-slate-500">dev</span>
+            <span class="text-violet-400">Flutter</span> <span class="text-slate-400">dev</span>
           </div>
         </div>
       </div>
@@ -157,22 +158,22 @@
         <div class="grid grid-cols-2 gap-4" data-aos="fade-left">
           <div class="glass rounded-2xl p-5 hover:border-cyan-500/30 transition-all">
             <div class="text-3xl mb-3">⚡</div>
-            <h4 class="font-bold text-white mb-1">Performance</h4>
+            <h3 class="font-bold text-white mb-1">Performance</h3>
             <p class="text-slate-400 text-sm">Foco em apps rápidos, otimizados e com boa experiência</p>
           </div>
           <div class="glass rounded-2xl p-5 hover:border-violet-500/30 transition-all">
             <div class="text-3xl mb-3">🎨</div>
-            <h4 class="font-bold text-white mb-1">UI / UX</h4>
+            <h3 class="font-bold text-white mb-1">UI / UX</h3>
             <p class="text-slate-400 text-sm">Design cuidadoso do Figma até a implementação final</p>
           </div>
           <div class="glass rounded-2xl p-5 hover:border-cyan-500/30 transition-all">
             <div class="text-3xl mb-3">📱</div>
-            <h4 class="font-bold text-white mb-1">Mobile</h4>
+            <h3 class="font-bold text-white mb-1">Mobile</h3>
             <p class="text-slate-400 text-sm">Apps multiplataforma com Flutter para Android e iOS</p>
           </div>
           <div class="glass rounded-2xl p-5 hover:border-violet-500/30 transition-all">
             <div class="text-3xl mb-3">🚀</div>
-            <h4 class="font-bold text-white mb-1">SaaS / B2G</h4>
+            <h3 class="font-bold text-white mb-1">SaaS / B2G</h3>
             <p class="text-slate-400 text-sm">Experiência real entregando software para o setor público</p>
           </div>
         </div>
@@ -279,7 +280,7 @@
                       class="text-xs bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 px-2 py-0.5 rounded-full">🏆
                       Startup Nordeste</span>
                   </div>
-                  <p class="text-slate-500 text-sm font-mono">Co-fundador · 2024 — atual · iniport.com.br</p>
+                  <p class="text-slate-400 text-sm font-mono">Co-fundador · 2024 — atual · iniport.com.br</p>
                 </div>
               </div>
               <span class="text-cyan-400 text-lg arr flex-shrink-0 ml-2">↗</span>
@@ -307,7 +308,7 @@
                   <span
                     class="text-xs bg-blue-500/20 text-blue-300 border border-blue-500/30 px-2 py-0.5 rounded-full">UFAL</span>
                 </div>
-                <p class="text-slate-500 text-xs font-mono">PIBIT — UFAL 2024</p>
+                <p class="text-slate-400 text-xs font-mono">PIBIT — UFAL 2024</p>
               </div>
             </div>
             <span class="text-cyan-400 text-lg arr flex-shrink-0 ml-2">↗</span>
@@ -333,7 +334,7 @@
             <div class="w-10 h-10 rounded-xl bg-cyan-500/15 flex items-center justify-center text-xl">📊</div>
             <div>
               <h3 class="font-bold text-white">EIDI</h3>
-              <p class="text-slate-500 text-xs font-mono">Extensão — UFAL 2022</p>
+              <p class="text-slate-400 text-xs font-mono">Extensão — UFAL 2022</p>
             </div>
           </div>
           <p class="text-slate-300 text-sm leading-relaxed mb-4">
@@ -360,7 +361,7 @@
                     class="text-xs bg-green-500/20 text-green-400 border border-green-500/30 px-2 py-0.5 rounded-full">Live
                     ✦</span>
                 </div>
-                <p class="text-slate-500 text-xs font-mono">jluckas.com.br</p>
+                <p class="text-slate-400 text-xs font-mono">jluckas.com.br</p>
               </div>
             </div>
             <span class="text-cyan-400 text-lg arr flex-shrink-0 ml-2">↗</span>
@@ -402,7 +403,7 @@
               <div class="pb-6">
                 <div class="text-white font-bold">Ciência da Computação</div>
                 <div class="text-cyan-400 text-sm font-medium">Universidade Federal de Alagoas — UFAL</div>
-                <div class="text-slate-500 text-xs mt-1 font-mono">2022 — 2026 (8º semestre)</div>
+                <div class="text-slate-400 text-xs mt-1 font-mono">2022 — 2026 (8º semestre)</div>
                 <p class="text-slate-400 text-sm mt-2">
                   Bacharelado com foco em desenvolvimento de software, algoritmos, estruturas de dados e sistemas
                   distribuídos.
@@ -416,7 +417,7 @@
               <div>
                 <div class="text-white font-bold">Operador de Computador</div>
                 <div class="text-cyan-400 text-sm font-medium">PlayEducation</div>
-                <div class="text-slate-500 text-xs mt-1 font-mono">Informática, segurança digital, Office 2016</div>
+                <div class="text-slate-400 text-xs mt-1 font-mono">Informática, segurança digital, Office 2016</div>
               </div>
             </div>
           </div>
@@ -516,11 +517,12 @@
       </div>
     </div>
   </section>
+  </main>
 
   <!-- ─── FOOTER ─────────────────────────────────────── -->
   <footer class="border-t border-white/5 py-8 px-6">
     <div
-      class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-slate-500 text-sm text-center md:text-left">
+      class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-slate-400 text-sm text-center md:text-left">
       <div class="font-mono text-cyan-400 font-bold">&lt;Lucas<span class="text-violet-500">/</span>&gt;</div>
       <p>Feito com ❤️ por Lucas Ferreira — Girau do Ponciano, AL</p>
       <p>© 2026 All rights reserved.</p>
