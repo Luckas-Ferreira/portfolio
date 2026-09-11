@@ -66,6 +66,13 @@ body {
   box-shadow: 0 20px 60px rgba(34, 211, 238, 0.08);
 }
 
+.proj-card:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 4px;
+  border-color: rgba(34, 211, 238, 0.65);
+  transform: translateY(-4px);
+}
+
 /* Non-link card */
 .proj-card-plain {
   background: rgba(255, 255, 255, 0.03);
@@ -263,6 +270,18 @@ body {
 .proj-card:hover .arr {
   opacity: 1;
   transform: translateX(0);
+}
+
+.proj-card:focus-visible .arr {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (hover: none) {
+  .proj-card .arr {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 /* IniPort image overlay */
